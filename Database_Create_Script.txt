@@ -1,0 +1,11 @@
+Create User table script: 
+CREATE TABLE public."Users" ("userId" serial NOT NULL, username text NOT NULL, password text NOT NULL, PRIMARY KEY ("userId"));
+
+Insert admin script:
+Insert Into public."Users" (username, password) values ('ADMIN', 'Admin');
+
+Create Books table script:
+CREATE TABLE public."Books" ("bookId" serial NOT NULL, title text NOT NULL, author text NOT NULL, genres text[] NOT NULL, book_address text NOT NULL, cover bytea NOT NULL, PRIMARY KEY ("bookId"));
+
+Create DownloadedBooks table script:
+CREATE TABLE public."DownloadedBooks" ("transactionId" serial NOT NULL, "userId" integer NOT NULL, "bookId" integer NOT NULL, "dateDownloaded" date NOT NULL, PRIMARY KEY ("transactionId"));

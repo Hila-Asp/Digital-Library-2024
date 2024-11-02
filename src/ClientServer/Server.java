@@ -54,16 +54,16 @@ public class Server {
     public static void main(String[] args) {
         try {
             ResultSet rs;
-            if (!doesTableExist("gsers")) { //checks if "Users" table exists
-                String sql = "CREATE TABLE public.\"gsers\" ("
+            if (!doesTableExist("Users")) { //checks if "Users" table exists
+                String sql = "CREATE TABLE public.\"Users\" ("
                         + "\"userId\" serial NOT NULL, "
                         + "username text NOT NULL, "
                         + "password text NOT NULL, "
                         + "PRIMARY KEY (\"userId\"))";
-                String sql2 = "Insert Into public.\"gsers\" (username, password) values (?, ?)";
+                String sql2 = "Insert Into public.\"Users\" (username, password) values (?, ?)";
                 ps = con.prepareStatement(sql);
                 ps.executeUpdate();
-                if (doesTableExist("gsers")) {
+                if (doesTableExist("Users")) {
                     System.out.println("Users table created");
                 } else {
                     System.out.println("Couldn't create Users table");
@@ -78,8 +78,8 @@ public class Server {
                 }
             }
 
-            if (!doesTableExist("gooks")) {
-                String sql3 = "CREATE TABLE public.\"gooks\" ("
+            if (!doesTableExist("Books")) {
+                String sql3 = "CREATE TABLE public.\"Books\" ("
                         + "\"bookId\" serial NOT NULL, "
                         + "title text NOT NULL, "
                         + "author text NOT NULL, "
@@ -89,14 +89,14 @@ public class Server {
                         + "    PRIMARY KEY (\"bookId\"))";
                 ps = con.prepareStatement(sql3);
                 ps.executeUpdate();
-                if (doesTableExist("gooks")) {
+                if (doesTableExist("Books")) {
                     System.out.println("Books table created");
                 } else {
                     System.out.println("couldn't create books table");
                 }
             }
-            if (!doesTableExist("Downloadedgooks")) {
-                String sql4 = "CREATE TABLE public.\"Downloadedgooks\" ("
+            if (!doesTableExist("DownloadedBooks")) {
+                String sql4 = "CREATE TABLE public.\"DownloadedBooks\" ("
                         + "\"transactionId\" serial NOT NULL, "
                         + "\"userId\" integer NOT NULL, "
                         + "\"bookId\" integer NOT NULL, "
@@ -104,7 +104,7 @@ public class Server {
                         + "    PRIMARY KEY (\"transactionId\"))";
                 ps = con.prepareStatement(sql4);
                 ps.executeUpdate();
-                if (doesTableExist("Downloadedgooks")) {
+                if (doesTableExist("DownloadedBooks")) {
                     System.out.println("Downloaded Books table created");
                 } else {
                     System.out.println("Couldn't create downloaded books table");

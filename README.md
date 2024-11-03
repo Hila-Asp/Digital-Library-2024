@@ -8,8 +8,6 @@ An "online shop" where users can download digital books (.epub files).
 - Run Server.java</br>
   It will create all 3 databases needed for the project, it will add the admin user to the "Users" table and it will give you a default admin password.
 - Login with the default password then change it.
-- Add books</br></br>
-
 - If you want to create the databases manually:
   - Create 3 tables (I used Postgres). (The scripts are in Database_Create_Script.txt)
     - Users:
@@ -29,4 +27,5 @@ An "online shop" where users can download digital books (.epub files).
         - bookId (integer)
         - dateDownloaded (date)
   - Add manually the admin password (it's important to insert the hashed password to the database)
-  - Add books
+- Add books
+- To read the books you need to have an epub viewer.
